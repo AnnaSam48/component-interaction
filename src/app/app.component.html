@@ -1,4 +1,30 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<h3>{{pageTitle}}</h3>
+<div>
+    <img [src]="imageUrl" alt="Image"(srcChange)="getTheDoctor()">
+</div>
+<div>
+  <button (click)="incrementBlinks()">Blink</button>
+  <p>You have blinked {{blinkCount}} times!</p>
+</div>
+<div>
+  <span>Your location:</span>
+  <input type="text"[(ngModel)]='location'>
+  <p>
+  <button (click)="getTheDoctor()">Send Doctor to {{location}}</button>
+  </p>
+</div>
+<div>
+  <span>Your name:</span>
+  <input #nameRef type="text"[ngModel]="name" (ngModelChange)="warn($event)"> 
+  <p>Don't even blink, {{name}}!</p>
+</div>
+<div>
+  <span>Nickname:</span>
+  <input type="text"[(ngModel)]='customerName'>
+  <p>
+    Welcome, {{customerName}}! Prove that you are not Weeping Angel!
+  </p>
+
+</div>
+
+
